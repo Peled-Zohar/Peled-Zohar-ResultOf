@@ -11,7 +11,29 @@ meaning you can easily combine results in a short-circute manner for easy valida
 Usage example:
 
 ```scharp
-internal Result<SomeObject> Validate(SomeObject someObject)
+Result DoSomething()
+{
+    // some code...
+    return condition
+        ? Result.Success()
+        : Result.Fail("Something went wrong...");
+}
+
+Result<int> DoSomethingAndReturnAnInt()
+{
+    // some code...
+    return condition
+        ? Result<int>.Success(5)
+        : Result<int>.Fail("Something went wrong...");
+}
+
+
+```
+
+And a validation usage example:
+
+```scharp
+Result<SomeObject> Validate(SomeObject someObject)
 {
     
     return Validate("someObject is null.", d => d is object) 
