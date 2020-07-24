@@ -39,7 +39,8 @@ void DoIfMethodSucceeded()
     var result = DoSomething();
     if(!result.Succeeded)
     {   
-        // Something went wrong, do something with result.ErrorDescription - log or show the user or whatever
+        // Something went wrong, do something with result.ErrorDescription 
+        // log or show the user or whatever
         return;
     }
         // Everything is fine, you can go on with your code
@@ -53,7 +54,8 @@ bool DoIfMethodSucceeded()
     var result = DoSomethingAndReturnAnInt();
     if(!result.Succeeded)
     {   
-        // Something went wrong, do something with result.ErrorDescription - log or show the user or whatever
+        // Something went wrong, do something with result.ErrorDescription 
+        // log or show the user or whateverlog or show the user or whatever
         return false;
     }
         var intValue = result.Value;
