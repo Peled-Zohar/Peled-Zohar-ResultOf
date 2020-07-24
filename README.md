@@ -10,6 +10,7 @@ Both `Result` and `Result<T>` overloads the `&` and `|` operators as well as the
 meaning you can easily combine results in a short-circute manner for easy validations.
 Usage example:
 
+Return a `Result` from a method:
 ```scharp
 Result DoSomething()
 {
@@ -18,7 +19,10 @@ Result DoSomething()
         ? Result.Success()
         : Result.Fail("Something went wrong...");
 }
+```
 
+Return a `Result<T>` from a method:
+```csharp
 Result<int> DoSomethingAndReturnAnInt()
 {
     // some code...
@@ -26,12 +30,39 @@ Result<int> DoSomethingAndReturnAnInt()
         ? Result<int>.Success(5)
         : Result<int>.Fail("Something went wrong...");
 }
-
-
 ```
 
-And a validation usage example:
+Consume a method that returns a `Result`
+```csharp
+void DoIfMethodSucceeded()
+{
+    var result = DoSomething();
+    if(!result.Succeeded)
+    {   
+        // Something went wrong, do something with result.ErrorDescription - log or show the user or whatever
+        return;
+    }
+        // Everything is fine, you can go on with your code
+    }
+```
 
+Consume a method that returns a `Result<T>`
+```csharp
+bool DoIfMethodSucceeded()
+{
+    var result = DoSomethingAndReturnAnInt();
+    if(!result.Succeeded)
+    {   
+        // Something went wrong, do something with result.ErrorDescription - log or show the user or whatever
+        return false;
+    }
+        var intValue = result.Value;
+        // Everything is fine, you can go on with your code
+    }
+```
+
+
+And a validation usage example:
 ```scharp
 Result<SomeObject> Validate(SomeObject someObject)
 {
@@ -48,7 +79,9 @@ Result<SomeObject> Validate(SomeObject someObject)
         {
             // Log non-exceptional error here...
         }
-        return isValid ? Result<SomeObject>.Success(rbMatch) : Result<SomeObject>.Fail(errorMessage);
+        return isValid 
+            ? Result<SomeObject>.Success(rbMatch) 
+            : Result<SomeObject>.Fail(errorMessage);
     }
 }
 ```
