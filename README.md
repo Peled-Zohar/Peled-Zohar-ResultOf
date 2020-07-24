@@ -63,7 +63,7 @@ bool DoIfMethodSucceeded()
 
 
 And a validation usage example:
-```scharp
+```csharp
 Result<SomeObject> Validate(SomeObject someObject)
 {
     
