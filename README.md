@@ -7,10 +7,10 @@ Use `Result` to enable void methods to return an indication of success or failur
 and `Result<T>` to enable non-void methods to do the same.
 
 Both `Result` and `Result<T>` overloads the `&` and `|` operators as well as the `true` and `false` operators, 
-meaning you can easily combine results in a short-circute manner for easy validations.
-Usage example:
+meaning you can easily combine results in a short-circute manner for easy validations.  
+### Usage example:
 
-Return a `Result` from a method:
+**Return a *`Result`* from a method:**
 ```csharp
 Result DoSomething()
 {
@@ -21,7 +21,7 @@ Result DoSomething()
 }
 ```
 
-Return a `Result<T>` from a method:
+**Return a *`Result<T>`* from a method:**
 ```csharp
 Result<int> DoSomethingAndReturnAnInt()
 {
@@ -32,7 +32,7 @@ Result<int> DoSomethingAndReturnAnInt()
 }
 ```
 
-Consume a method that returns a `Result`
+**Consume a method that returns a *`Result`***
 ```csharp
 void DoIfMethodSucceeded()
 {
@@ -47,7 +47,7 @@ void DoIfMethodSucceeded()
     }
 ```
 
-Consume a method that returns a `Result<T>`
+**Consume a method that returns a *`Result<T>`***
 ```csharp
 bool DoIfMethodSucceeded()
 {
@@ -63,8 +63,7 @@ bool DoIfMethodSucceeded()
     }
 ```
 
-
-And a validation usage example:
+**And a validation usage example:**
 ```csharp
 Result<SomeObject> Validate(SomeObject someObject)
 {
