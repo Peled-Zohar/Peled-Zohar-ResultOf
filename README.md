@@ -11,7 +11,7 @@ meaning you can easily combine results in a short-circute manner for easy valida
 Usage example:
 
 Return a `Result` from a method:
-```scharp
+```csharp
 Result DoSomething()
 {
     // some code...
