@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 
 namespace ResultOf
 {
     /// <summary>
     /// Provides a way to return a success indicator 
     /// and (in case of an error) error description from a method.
-    /// The Result class overloads the &amp; |, true and false operators to make it easy to use in validatios.
+    /// The <see cref="Result"/> class overloads the &amp; |, true and false operators to make it easy to use in validatios.
     /// The &amp; operator returns the first failed operand (or the last operand tested),
     /// and the | operator returns the first succeesfull operand (or the last operand tested).
     /// The &amp;&amp; operator and || operators will do the same, but in a short-circuit way.
@@ -15,26 +15,26 @@ namespace ResultOf
         #region ctor
 
         /// <summary>
-        /// Initializes a new instance of the Result class to indicate a success.
+        /// Initializes a new instance of the <see cref="Result"/> class to indicate a success.
         /// </summary>
-        /// <returns>An instance of the Result class indicating success.</returns>
+        /// <returns>An instance of the <see cref="Result"/> class indicating success.</returns>
         public static Result Success()
         {
             return new Result();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result class to indicate a failure.
+        /// Initializes a new instance of the <see cref="Result"/> class to indicate a failure.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
-        /// <returns>An instance of the Result class indicating failure.</returns>
+        /// <returns>An instance of the <see cref="Result"/> class indicating failure.</returns>
         public static Result Fail(string errorDescription)
         {
             return new Result(errorDescription);
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result class to indicate a success.
+        /// Initializes a new instance of the <see cref="Result"/> class to indicate a success.
         /// </summary>
         protected Result()
         {
@@ -42,7 +42,7 @@ namespace ResultOf
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result class to indicate a failure.
+        /// Initializes a new instance of the <see cref="Result"/> class to indicate a failure.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
         protected Result(string errorDescription)
@@ -81,8 +81,8 @@ namespace ResultOf
         /// var result = result1 &amp; result2 &amp; result3;
         /// </code>
         /// </example>
-        /// <param name="self">An instance of the Result class.</param>
-        /// <param name="other">An instance of the Result class.</param>
+        /// <param name="self">An instance of the <see cref="Result"/> class.</param>
+        /// <param name="other">An instance of the <see cref="Result"/> class.</param>
         /// <returns><paramref name="self"/> if not succeeded, <paramref name="other"/> otherwise.</returns>
         /// <exception cref="ArgumentNullException">if any of the operands is null.</exception>
         public static Result operator &(Result self, Result other)
@@ -105,8 +105,8 @@ namespace ResultOf
         /// var result = result1 &amp; result2 &amp; result3;
         /// </code>
         /// </example>
-        /// <param name="self">An instance of the Result class.</param>
-        /// <param name="other">An instance of the Result class.</param>
+        /// <param name="self">An instance of the <see cref="Result"/> class.</param>
+        /// <param name="other">An instance of the <see cref="Result"/> class.</param>
         /// <returns><paramref name="self"/> if succeeded, <paramref name="other"/> otherwise.</returns>
         /// <exception cref="ArgumentNullException">if any of the operands is null.</exception>
         public static Result operator |(Result self, Result other)
@@ -122,7 +122,7 @@ namespace ResultOf
         /// This operator is needed to allow the usage of the || operator.
         /// </para>
         /// </summary>
-        /// <param name="self">The instance of the Result class to test.</param>
+        /// <param name="self">The instance of the <see cref="Result"/> class to test.</param>
         /// <returns>True when succedded, false otherwise.</returns>
         public static bool operator true(Result self)
         {
@@ -135,7 +135,7 @@ namespace ResultOf
         /// This operator is needed to allow the usage of the &amp;&amp; operator.
         /// </para>
         /// </summary>
-        /// <param name="self">The instance of the Result class to test.</param>
+        /// <param name="self">The instance of the <see cref="Result"/> class to test.</param>
         /// <returns>False when succedded, true otherwise.</returns>
         public static bool operator false(Result self)
         {
