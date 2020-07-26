@@ -6,7 +6,7 @@ namespace ResultOf
     /// Provides a way to return a value and a boolean success indicator, 
     /// and (in case of an error) error description from a method.
     /// </summary>
-    /// The Result<typeparam name="T"></typeparam> class overloads the &amp; and | operators to make it easy to use in validatios.
+    /// The <see cref="Result{T}"/> class overloads the &amp; and | operators to make it easy to use in validatios.
     /// The &amp; operator returns the first failed operand (or the last operand tested),
     /// and the | operator returns the first succeesfull operand (or the last operand tested).
     public class Result<T> : Result
@@ -14,39 +14,39 @@ namespace ResultOf
         #region ctor
 
         /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a success.
+        /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a success.
         /// </summary>
         /// <param name="value">The value to return from the method.</param>
-        /// <returns>A new instance of the Result&lt;T&gt; class indicating success.</returns>
+        /// <returns>A new instance of the <see cref="Result{T}"/> class indicating success.</returns>
         public static Result<T> Success(T value)
         {
             return new Result<T>(value);
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a failure.
+        /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
-        /// <returns>A new instance of the Result&lt;T&gt; class indicating a failure.</returns>
+        /// <returns>A new instance of the <see cref="Result{T}"/> class indicating a failure.</returns>
         public new static Result<T> Fail(string errorDescription)
         {
             return new Result<T>(errorDescription, default(T));
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a failure,
+        /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure,
         /// yet still returning the value.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
         /// <param name="value">The value to return from the method.</param>
-        /// <returns>A new instance of the Result&lt;T&gt; class indicating a failure, but still have a value.</returns>
+        /// <returns>A new instance of the <see cref="Result{T}"/> class indicating a failure, but still have a value.</returns>
         public static Result<T> Fail(string errorDescription, T value)
         {
             return new Result<T>(errorDescription, value);
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a success.
+        /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a success.
         /// </summary>
         /// <param name="value">The value to return from the method.</param>
         protected Result(T value)
@@ -56,7 +56,7 @@ namespace ResultOf
         }
 
         /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a failure,
+        /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure,
         /// yet still returning the value.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
@@ -92,8 +92,8 @@ namespace ResultOf
         /// var result = result1 &amp; result2 &amp; result3;
         /// </code>
         /// </example>
-        /// <param name="self">An instance of the Result<typeparamref name="T"/> class.</param>
-        /// <param name="other">An instance of the Result<typeparamref name="T"/> class.</param>
+        /// <param name="self">An instance of the <see cref="Result{T}"/> class.</param>
+        /// <param name="other">An instance of the <see cref="Result{T}"/> class.</param>
         /// <returns><paramref name="self"/> if not succeeded, <paramref name="other"/> otherwise.</returns>
         /// <exception cref="ArgumentNullException">if any of the operands is null.</exception>
         public static Result<T> operator &(Result<T> self, Result<T> other)
@@ -116,7 +116,7 @@ namespace ResultOf
         /// var result = result1 &amp; result2 &amp; result3;
         /// </code>
         /// </example>
-        /// <param name="self">An instance of the Result<typeparamref name="T"/> class.</param>
+        /// <param name="self">An instance of the <see cref="Result{T}"/> class.</param>
         /// <param name="other">An instance of the Result<typeparamref name="T"/> class.</param>
         /// <returns><paramref name="self"/> if succeeded, <paramref name="other"/> otherwise.</returns>
         /// <exception cref="ArgumentNullException">if any of the operands is null.</exception>
