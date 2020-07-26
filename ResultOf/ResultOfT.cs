@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ResultOf
 {
@@ -30,7 +30,7 @@ namespace ResultOf
         /// <returns>A new instance of the Result&lt;T&gt; class indicating a failure.</returns>
         public new static Result<T> Fail(string errorDescription)
         {
-            return new Result<T>(errorDescription);
+            return new Result<T>(errorDescription, default(T));
         }
 
         /// <summary>
@@ -53,16 +53,6 @@ namespace ResultOf
             : base()
         {
             Value = value;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the Result&lt;T&gt; class to indicate a failure.
-        /// </summary>
-        /// <param name="errorDescription">Description of the error.</param>
-        protected Result(string errorDescription)
-            : base(errorDescription)
-        {
-            Value = default(T);
         }
 
         /// <summary>
