@@ -1,6 +1,6 @@
 # ResultOf
 
-This project enables c# methods to return an indication of success or failure, for any method return type (including void).
+This project enables dot net methods to return an indication of success or failure, for any method return type (including void).
 It shouldn't be used instead of exceptions, but rather enable a method to return a failure indication in non-exceptional circumstances.
 
 Use `Result` to enable void methods to return an indication of success or failure, 
