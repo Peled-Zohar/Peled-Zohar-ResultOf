@@ -69,7 +69,7 @@ Result<SomeObject> Validate(SomeObject someObject)
 {
     
     return Validate("someObject is null.", d => d is object) 
-        && Validate("Raw data has no SomeProperty.", d => d.SomeProperty is object) 
+        && Validate("someObject has no SomeProperty.", d => d.SomeProperty is object) 
         && Validate("SomeProperty is invalid.", d => d.SomeProperty.IsValid) 
         && Validate("SomeCollection is empty.", d => (d.SomeCollection?.Count ?? 0) > 0);
 
