@@ -18,28 +18,22 @@ namespace ResultOf
         /// Initializes a new instance of the <see cref="Result"/> class to indicate a success.
         /// </summary>
         /// <returns>An instance of the <see cref="Result"/> class indicating success.</returns>
-        public static Result Success()
-        {
-            return new Result();
-        }
+        public static Result Success() 
+            => new Result();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result"/> class to indicate a failure.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
         /// <returns>An instance of the <see cref="Result"/> class indicating failure.</returns>
-        public static Result Fail(string errorDescription)
-        {
-            return new Result(errorDescription);
-        }
+        public static Result Fail(string errorDescription) 
+            => new Result(errorDescription);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result"/> class to indicate a success.
         /// </summary>
-        protected Result()
-        {
-            Succeeded = true;
-        }
+        protected Result() 
+            => Succeeded = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result"/> class to indicate a failure.
@@ -58,12 +52,12 @@ namespace ResultOf
         /// <summary>
         /// Gets a boolean value indicating success or failure of the method.
         /// </summary>
-        public bool Succeeded { get; protected set; }
+        public bool Succeeded { get; }
 
         /// <summary>
         /// Gets the description of the error.
         /// </summary>
-        public string ErrorDescription { get; protected set; }
+        public string ErrorDescription { get; }
 
         #endregion properties
 
@@ -124,10 +118,8 @@ namespace ResultOf
         /// </summary>
         /// <param name="self">The instance of the <see cref="Result"/> class to test.</param>
         /// <returns>True when succedded, false otherwise.</returns>
-        public static bool operator true(Result self)
-        {
-            return self.Succeeded;
-        }
+        public static bool operator true(Result self) 
+            => self.Succeeded;
 
         /// <summary>
         /// Returns false when succedded. (the opposite of the true operator.)
@@ -137,10 +129,8 @@ namespace ResultOf
         /// </summary>
         /// <param name="self">The instance of the <see cref="Result"/> class to test.</param>
         /// <returns>False when succedded, true otherwise.</returns>
-        public static bool operator false(Result self)
-        {
-            return !self.Succeeded;
-        }
+        public static bool operator false(Result self) 
+            => !self.Succeeded;
 
         #endregion operators
     }

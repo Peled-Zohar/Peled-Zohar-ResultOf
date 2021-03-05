@@ -19,19 +19,15 @@ namespace ResultOf
         /// <param name="value">The value to return from the method.</param>
         /// <returns>A new instance of the <see cref="Result{T}"/> class indicating success.</returns>
         public static Result<T> Success(T value)
-        {
-            return new Result<T>(value);
-        }
+            => new Result<T>(value);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure.
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
         /// <returns>A new instance of the <see cref="Result{T}"/> class indicating a failure.</returns>
-        public new static Result<T> Fail(string errorDescription)
-        {
-            return new Result<T>(errorDescription, default(T));
-        }
+        public static new Result<T> Fail(string errorDescription)
+            => new Result<T>(errorDescription, default);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure,
@@ -41,19 +37,14 @@ namespace ResultOf
         /// <param name="value">The value to return from the method.</param>
         /// <returns>A new instance of the <see cref="Result{T}"/> class indicating a failure, but still have a value.</returns>
         public static Result<T> Fail(string errorDescription, T value)
-        {
-            return new Result<T>(errorDescription, value);
-        }
+            => new Result<T>(errorDescription, value);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a success.
         /// </summary>
         /// <param name="value">The value to return from the method.</param>
-        protected Result(T value)
-            : base()
-        {
-            Value = value;
-        }
+        protected Result(T value) : base()
+            => Value = value;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Result{T}"/> class to indicate a failure,
@@ -61,11 +52,8 @@ namespace ResultOf
         /// </summary>
         /// <param name="errorDescription">Description of the error.</param>
         /// <param name="value">The value to return from the method.</param>
-        protected Result(string errorDescription, T value)
-            : base(errorDescription)
-        {
-            Value = value;
-        }
+        protected Result(string errorDescription, T value) : base(errorDescription)
+            => Value = value;
 
         #endregion ctor
 
